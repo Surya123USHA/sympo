@@ -2,95 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ONE PIECE ESPERANZA SYMPOSIUM DESIGN SYSTEM
+   Ocean Adventure Theme with Vibrant Anime Colors
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Ocean Background System */
+    --background: 200 100% 97%;
+    --foreground: 220 25% 15%;
 
+    /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Ocean Blue Primary (Deep Sea Adventure) */
+    --primary: 210 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 100% 60%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Treasure Gold Secondary */
+    --secondary: 45 100% 50%;
+    --secondary-foreground: 220 25% 15%;
+    --secondary-glow: 45 100% 65%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Straw Hat Beige Muted */
+    --muted: 40 35% 90%;
+    --muted-foreground: 220 25% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Pirate Red Accent */
+    --accent: 0 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Navy Depth Colors */
+    --navy: 220 40% 20%;
+    --navy-foreground: 0 0% 100%;
+
+    /* Adventure Colors */
+    --adventure: 25 90% 55%;
+    --adventure-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 30% 85%;
+    --input: 210 30% 90%;
+    --ring: 210 100% 40%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Ocean Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(220, 70%, 50%), hsl(200, 100%, 40%));
+    --gradient-treasure: linear-gradient(135deg, hsl(45, 100%, 50%), hsl(35, 100%, 45%));
+    --gradient-adventure: linear-gradient(135deg, hsl(25, 90%, 55%), hsl(0, 85%, 55%));
+    --gradient-depth: linear-gradient(180deg, hsl(220, 40%, 20%), hsl(220, 60%, 10%));
+    
+    /* Anime Shadows */
+    --shadow-treasure: 0 10px 40px hsl(45, 100%, 50% / 0.3);
+    --shadow-ocean: 0 15px 35px hsl(210, 100%, 40% / 0.2);
+    --shadow-adventure: 0 8px 25px hsl(0, 85%, 55% / 0.25);
+    --shadow-float: 0 20px 60px hsl(220, 40%, 20% / 0.15);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animation Variables */
+    --animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --animation-float: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --animation-treasure: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Ocean Depths Theme */
+    --background: 220 40% 8%;
+    --foreground: 200 50% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 35% 12%;
+    --card-foreground: 200 50% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 35% 12%;
+    --popover-foreground: 200 50% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Glowing Ocean Primary */
+    --primary: 200 100% 60%;
+    --primary-foreground: 220 40% 8%;
+    --primary-glow: 200 100% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Bright Treasure Gold */
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 220 40% 8%;
+    --secondary-glow: 45 100% 75%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Dark Beige Muted */
+    --muted: 220 25% 18%;
+    --muted-foreground: 200 30% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Bright Pirate Red */
+    --accent: 0 90% 65%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
+    /* Deep Navy */
+    --navy: 220 50% 5%;
+    --navy-foreground: 200 50% 90%;
+
+    /* Bright Adventure Orange */
+    --adventure: 25 100% 65%;
+    --adventure-foreground: 220 40% 8%;
+
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 30% 20%;
+    --input: 220 30% 15%;
+    --ring: 200 100% 60%;
+
+    /* Enhanced Dark Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(220, 60%, 25%), hsl(200, 80%, 35%));
+    --gradient-treasure: linear-gradient(135deg, hsl(45, 100%, 60%), hsl(35, 100%, 50%));
+    --gradient-adventure: linear-gradient(135deg, hsl(25, 100%, 65%), hsl(0, 90%, 65%));
+    --gradient-depth: linear-gradient(180deg, hsl(220, 50%, 5%), hsl(220, 40%, 8%));
+    
+    /* Enhanced Dark Shadows */
+    --shadow-treasure: 0 15px 50px hsl(45, 100%, 60% / 0.4);
+    --shadow-ocean: 0 20px 45px hsl(200, 100%, 60% / 0.3);
+    --shadow-adventure: 0 12px 35px hsl(0, 90%, 65% / 0.35);
+    --shadow-float: 0 25px 70px hsl(220, 50%, 5% / 0.6);
   }
 }
 
@@ -101,5 +138,144 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Trebuchet MS', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  /* One Piece Anime Keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  @keyframes treasure-bounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+  }
+
+  @keyframes sail-in {
+    0% { transform: translateX(-100%) scale(0.8); opacity: 0; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: translateY(0px); }
+    25% { transform: translateY(-5px); }
+    75% { transform: translateY(5px); }
+  }
+
+  @keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes treasure-open {
+    0% { transform: perspective(1000px) rotateX(0deg); }
+    100% { transform: perspective(1000px) rotateX(-45deg); }
+  }
+
+  @keyframes wanted-poster-swing {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-treasure {
+    @apply bg-gradient-to-r from-secondary to-secondary-glow text-navy font-bold px-8 py-4 rounded-xl
+           shadow-[var(--shadow-treasure)] hover:scale-105 transition-all duration-300
+           relative overflow-hidden;
+  }
+
+  .btn-treasure::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
+           transform -translate-x-full;
+    animation: shine 2s infinite;
+  }
+
+  .btn-adventure {
+    @apply bg-gradient-to-r from-adventure to-accent text-white font-bold px-8 py-4 rounded-xl
+           shadow-[var(--shadow-adventure)] hover:scale-105 transition-all duration-300
+           border-2 border-white/20;
+  }
+
+  .btn-ocean {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-white font-bold px-6 py-3 rounded-lg
+           shadow-[var(--shadow-ocean)] hover:scale-105 transition-all duration-300;
+  }
+
+  /* Floating Elements */
+  .float-gentle {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-treasure {
+    animation: treasure-bounce 3s ease-in-out infinite;
+  }
+
+  .sail-in {
+    animation: sail-in 2s var(--animation-bounce) forwards;
+  }
+
+  .wave-motion {
+    animation: wave 4s ease-in-out infinite;
+  }
+
+  /* Wanted Poster Cards */
+  .wanted-poster {
+    @apply bg-amber-50 border-4 border-amber-800 rounded-lg p-6 shadow-lg
+           transform transition-all duration-300 hover:scale-105 hover:rotate-1
+           relative overflow-hidden;
+    background-image: radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+    animation: wanted-poster-swing 8s ease-in-out infinite;
+  }
+
+  .wanted-poster::before {
+    content: 'WANTED';
+    @apply absolute top-2 left-1/2 transform -translate-x-1/2 text-red-800 font-black text-sm
+           tracking-wider opacity-30;
+  }
+
+  /* Treasure Chest */
+  .treasure-chest {
+    @apply cursor-pointer transition-all duration-500 hover:scale-110;
+    transform-style: preserve-3d;
+  }
+
+  .treasure-chest:hover {
+    animation: treasure-open 0.5s ease-out forwards;
+  }
+
+  /* Navigation Map Style */
+  .nav-map {
+    @apply bg-amber-100 border-2 border-amber-600 rounded-lg p-4 shadow-lg
+           relative overflow-hidden;
+    background-image: 
+      radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  }
+
+  .nav-map::before {
+    content: '';
+    @apply absolute inset-0 opacity-20;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23654321' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-11.046-8.954-20-20-20v20h20zM0 20v20h20c0-11.046-8.954-20-20-20z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    @apply relative inline-flex items-center justify-center w-12 h-6 rounded-full
+           bg-gradient-to-r from-secondary to-primary cursor-pointer
+           transition-all duration-300 shadow-[var(--shadow-treasure)];
+  }
+
+  .theme-toggle::before {
+    content: '';
+    @apply absolute w-5 h-5 bg-white rounded-full shadow-lg transition-transform duration-300;
+    transform: translateX(-50%);
+  }
+
+  .theme-toggle.dark::before {
+    transform: translateX(50%);
   }
 }
