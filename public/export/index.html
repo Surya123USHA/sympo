@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPERANZA - One Piece Symposium 2024</title>
+    <meta name="description" content="Join us for an epic adventure of knowledge, discovery, and unity as we explore the vast oceans of possibility together!">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://esperanza-symposium.com">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-map fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3">
+        <div class="flex items-center gap-6">
+            <a href="#home" class="nav-link font-bold text-amber-800 hover:text-amber-900">Home</a>
+            <a href="#about" class="nav-link font-bold text-amber-800 hover:text-amber-900">About</a>
+            <a href="#events" class="nav-link font-bold text-amber-800 hover:text-amber-900">Events</a>
+            <a href="#speakers" class="nav-link font-bold text-amber-800 hover:text-amber-900">Speakers</a>
+            <a href="#contact" class="nav-link font-bold text-amber-800 hover:text-amber-900">Contact</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="sr-only">Toggle theme</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Announcement Banner -->
+    <div class="wanted-poster fixed top-4 right-4 z-40 w-64 p-4 text-center">
+        <div class="text-red-800 font-black text-sm mb-2 tracking-wider">ANNOUNCEMENT</div>
+        <p class="text-amber-800 font-bold text-sm">🎉 Early bird registration now open! Join the adventure!</p>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="ocean-background.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="floating-anchor">⚓</div>
+        <div class="floating-compass">🧭</div>
+
+        <div class="hero-content">
+            <div class="hero-title sail-in">
+                <h1 class="hero-main-title">
+                    <span class="gradient-text animate-shine">ESPERANZA</span>
+                </h1>
+                <h2 class="hero-subtitle">ONE PIECE SYMPOSIUM 2024</h2>
+                <p class="hero-description">
+                    Join us for an epic adventure of knowledge, discovery, and unity as we explore the vast oceans of possibility together!
+                </p>
+            </div>
+
+            <div class="hero-crew-image sail-in">
+                <img src="assets/straw-hat-crew.jpg" alt="Straw Hat Pirates Crew" class="crew-image">
+            </div>
+
+            <div class="hero-buttons sail-in">
+                <button class="btn-treasure">
+                    <span>Join the Adventure</span>
+                    <span class="button-icon">⚓</span>
+                </button>
+                <button class="btn-adventure">
+                    <span>Explore Events</span>
+                    <span class="button-icon">📅</span>
+                </button>
+            </div>
+
+            <div class="hero-stats sail-in">
+                <div class="stat-item">
+                    <div class="stat-icon treasure-bounce">👥</div>
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Adventurers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon treasure-bounce">📅</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon treasure-bounce">📍</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Venues</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon treasure-bounce">⚓</div>
+                    <div class="stat-value">25+</div>
+                    <div class="stat-label">Sessions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">About the Symposium</span>
+                </h2>
+                <p class="section-description">
+                    Set sail on a journey of discovery and innovation at the most epic symposium of the year!
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🌊</div>
+                    <h3>Ocean of Knowledge</h3>
+                    <p>Dive deep into cutting-edge research and discoveries that will shape the future of our world.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏴‍☠️</div>
+                    <h3>Pirate Spirit</h3>
+                    <p>Embrace the adventurous spirit of exploration and the courage to challenge conventional thinking.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👥</div>
+                    <h3>Crew Unity</h3>
+                    <p>Build lasting connections with fellow adventurers and form crews that will change the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="events-background">
+            <video autoplay muted loop playsinline class="events-video">
+                <source src="ocean-background.mp4" type="video/mp4">
+            </video>
+            <div class="events-overlay"></div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Adventure Schedule</span>
+                </h2>
+                <p class="section-description">
+                    Three days of epic exploration, learning, and discovery await you on this grand adventure!
+                </p>
+            </div>
+
+            <div class="events-timeline">
+                <!-- Day 1 -->
+                <div class="day-section">
+                    <div class="day-header wanted-poster">
+                        <div class="wanted-header">WANTED</div>
+                        <div class="day-icon-container">
+                            <div class="day-icon">⚓</div>
+                        </div>
+                        <h3 class="day-title">Day 1</h3>
+                        <p class="day-subtitle">March 15, 2024 • Setting Sail</p>
+                        <div class="bounty-section">
+                            <div class="bounty-header">BOUNTY</div>
+                            <div class="bounty-value">₿1,000,000,000</div>
+                            <div class="bounty-subtitle">ADVENTURE POINTS</div>
+                        </div>
+                    </div>
+
+                    <div class="sessions-grid">
+                        <div class="session-card wanted-poster">
+                            <div class="wanted-header">WANTED</div>
+                            <div class="session-header">
+                                <div class="session-time">🕘 09:00 - 10:30</div>
+                                <div class="session-type">KEYNOTE</div>
+                            </div>
+                            <div class="session-photo">
+                                <div class="speaker-name">Captain Symposium Team</div>
+                            </div>
+                            <div class="session-details">
+                                <h4 class="session-title">Opening Ceremony: Welcome Aboard</h4>
+                                <div class="session-location">📍 Main Deck Auditorium</div>
+                                <div class="session-bounty">
+                                    <div class="bounty-header">BOUNTY</div>
+                                    <div class="bounty-value">₿500,000,000</div>
+                                    <div class="bounty-subtitle">DEAD OR ALIVE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="session-card wanted-poster">
+                            <div class="wanted-header">WANTED</div>
+                            <div class="session-header">
+                                <div class="session-time">🕚 11:00 - 12:30</div>
+                                <div class="session-type">WORKSHOP</div>
+                            </div>
+                            <div class="session-photo">
+                                <div class="speaker-name">Dr. Marina Tech</div>
+                            </div>
+                            <div class="session-details">
+                                <h4 class="session-title">Navigating the Future of AI</h4>
+                                <div class="session-location">📍 Innovation Island</div>
+                                <div class="session-bounty">
+                                    <div class="bounty-header">BOUNTY</div>
+                                    <div class="bounty-value">₿300,000,000</div>
+                                    <div class="bounty-subtitle">DEAD OR ALIVE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="session-card wanted-poster">
+                            <div class="wanted-header">WANTED</div>
+                            <div class="session-header">
+                                <div class="session-time">🕑 14:00 - 15:30</div>
+                                <div class="session-type">PANEL</div>
+                            </div>
+                            <div class="session-photo">
+                                <div class="speaker-name">Prof. Team Dynamics</div>
+                            </div>
+                            <div class="session-details">
+                                <h4 class="session-title">Building Your Dream Crew</h4>
+                                <div class="session-location">📍 Collaboration Cove</div>
+                                <div class="session-bounty">
+                                    <div class="bounty-header">BOUNTY</div>
+                                    <div class="bounty-value">₿250,000,000</div>
+                                    <div class="bounty-subtitle">DEAD OR ALIVE</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="session-card wanted-poster">
+                            <div class="wanted-header">WANTED</div>
+                            <div class="session-header">
+                                <div class="session-time">🕓 16:00 - 17:00</div>
+                                <div class="session-type">SOCIAL</div>
+                            </div>
+                            <div class="session-photo">
+                                <div class="speaker-name">All Participants</div>
+                            </div>
+                            <div class="session-details">
+                                <h4 class="session-title">Networking: Meet Your Nakama</h4>
+                                <div class="session-location">📍 Friendship Bay</div>
+                                <div class="session-bounty">
+                                    <div class="bounty-header">BOUNTY</div>
+                                    <div class="bounty-value">₿100,000,000</div>
+                                    <div class="bounty-subtitle">DEAD OR ALIVE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-section">
+                    <div class="cta-card wanted-poster">
+                        <div class="wanted-header">WANTED</div>
+                        <h3 class="cta-title">Ready to Join the Adventure?</h3>
+                        <p class="cta-description">
+                            Secure your spot aboard the Esperanza and be part of this legendary journey!
+                        </p>
+                        <div class="cta-bounty">
+                            <div class="bounty-header">BOUNTY</div>
+                            <div class="bounty-value">UNLIMITED ADVENTURE</div>
+                        </div>
+                        <button class="btn-treasure">
+                            📅 Register Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>ESPERANZA</h3>
+                    <p>One Piece Symposium 2024</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#events">Events</a>
+                    <a href="#speakers">Speakers</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Esperanza Symposium. All rights reserved. Set sail for adventure!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
