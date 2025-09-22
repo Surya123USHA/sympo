@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, Anchor, Map, Users, Calendar, UserCheck, Phone } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import MusicToggle from './MusicToggle';
 import strawHatLogo from '@/assets/straw-hat-logo.jpg';
 
 const Navigation = () => {
@@ -46,8 +47,11 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Theme Toggle */}
-        <ThemeToggle />
+        {/* Controls */}
+        <div className="flex items-center gap-3">
+          <MusicToggle />
+          <ThemeToggle />
+        </div>
 
         {/* Mobile Menu Button */}
         <button

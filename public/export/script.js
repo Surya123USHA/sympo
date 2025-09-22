@@ -1,6 +1,38 @@
 // ESPERANZA ONE PIECE SYMPOSIUM JAVASCRIPT
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Music Toggle Functionality
+    const musicToggle = document.getElementById('music-toggle');
+    let backgroundAudio = null;
+    let isPlaying = false;
+    
+    // Initialize audio only if music toggle exists
+    if (musicToggle) {
+        backgroundAudio = new Audio('drums-of-liberation.mp3');
+        backgroundAudio.loop = true;
+        backgroundAudio.volume = 0.3;
+        
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundAudio.pause();
+                musicToggle.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                backgroundAudio.play().catch(error => {
+                    console.log('Audio playback failed:', error);
+                });
+                musicToggle.classList.add('playing');
+                isPlaying = true;
+            }
+            
+            // Add click animation
+            musicToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                musicToggle.style.transform = 'scale(1)';
+            }, 100);
+        });
+    }
+
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
