@@ -17,15 +17,15 @@ const Navigation = () => {
 
   return (
     <nav className="nav-map fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3">
-      <div className="flex items-center justify-between gap-8">
+      <div className="flex items-center justify-between gap-4 w-full">
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-shrink-0">
           <img 
             src={strawHatLogo} 
             alt="Straw Hat Pirates" 
             className="w-10 h-10 rounded-full float-gentle"
           />
-          <div className="hidden md:block min-w-0 flex-shrink-0">
+          <div className="hidden md:block min-w-0 -ml-2">
             <h1 className="text-xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
               ESPERANZA
             </h1>
@@ -64,7 +64,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 mt-2 p-4 nav-map">
+        <div className="lg:hidden absolute top-full left-0 right-0 mt-2 p-4 nav-map z-50 shadow-lg">
           <div className="flex flex-col gap-3">
             {navItems.map((item) => (
               <a

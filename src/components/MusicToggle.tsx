@@ -39,6 +39,7 @@ const MusicToggle = () => {
     try {
       if (isPlaying) {
         audioRef.current.pause();
+        audioRef.current.currentTime = 0; // Reset to beginning when stopped
         setIsPlaying(false);
       } else {
         await audioRef.current.play();
