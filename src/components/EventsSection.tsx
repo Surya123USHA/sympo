@@ -4,7 +4,7 @@ const EventsSection = () => {
   const events = [
     {
       day: 'Day 1',
-      date: 'March 15, 2024',
+      date: 'March 15, 2025',
       theme: 'Setting Sail',
       icon: Anchor,
       bounty: '1,000,000,000',
@@ -45,7 +45,7 @@ const EventsSection = () => {
     },
     {
       day: 'Day 2',
-      date: 'March 16, 2024',
+      date: 'March 16, 2025',
       theme: 'Exploring New Waters',
       icon: Star,
       bounty: '1,500,000,000',
@@ -86,7 +86,7 @@ const EventsSection = () => {
     },
     {
       day: 'Day 3',
-      date: 'March 17, 2024',
+      date: 'March 17, 2025',
       theme: 'Reaching the Summit',
       icon: Star,
       bounty: '2,000,000,000',

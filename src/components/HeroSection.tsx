@@ -39,7 +39,7 @@ const HeroSection = () => {
             </span>
           </h1>
           <h2 className="text-2xl md:text-4xl font-bold text-navy mb-6">
-            ONE PIECE SYMPOSIUM 2024
+            ONE PIECE SYMPOSIUM 2025
           </h2>
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             Join us for an epic adventure of knowledge, discovery, and unity as we explore the vast oceans of possibility together!

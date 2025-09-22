@@ -11,7 +11,21 @@ const MusicToggle = () => {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3; // Set to 30% volume for background music
 
+    // Auto-play music on page load (with user interaction fallback)
+    const autoPlayMusic = async () => {
+      try {
+        await audioRef.current?.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.log('Auto-play failed, user interaction required:', error);
+      }
+    };
+
+    // Delay auto-play to ensure proper initialization
+    const timer = setTimeout(autoPlayMusic, 1000);
+
     return () => {
+      clearTimeout(timer);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;

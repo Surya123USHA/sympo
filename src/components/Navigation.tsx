@@ -25,11 +25,11 @@ const Navigation = () => {
             alt="Straw Hat Pirates" 
             className="w-10 h-10 rounded-full float-gentle"
           />
-          <div className="hidden md:block">
-            <h1 className="text-xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <div className="hidden md:block min-w-0 flex-shrink-0">
+            <h1 className="text-xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
               ESPERANZA
             </h1>
-            <p className="text-xs text-muted-foreground">Symposium 2024</p>
+            <p className="text-xs text-muted-foreground">Symposium 2025</p>
           </div>
         </div>
 

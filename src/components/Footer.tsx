@@ -28,7 +28,7 @@ const Footer = () => {
                 <h3 className="text-2xl font-black bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
                   ESPERANZA
                 </h3>
-                <p className="text-sm text-white/70">Symposium 2024</p>
+                <p className="text-sm text-white/70">Symposium 2025</p>
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6">
@@ -96,7 +96,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              © 2024 Esperanza Symposium. All rights reserved. Set sail with confidence.
+              © 2025 Esperanza Symposium. All rights reserved. Set sail with confidence.
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm">
               <span>Made with</span>
