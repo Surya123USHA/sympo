@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Anchor, MapPin, Calendar, Users } from 'lucide-react';
-// We'll use video instead of static image
+import heroShip from '@/assets/hero-ship.jpg';
 import strawHatCrew from '@/assets/straw-hat-crew.jpg';
 
 const HeroSection = () => {
@@ -12,20 +12,14 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ocean Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+      {/* Ocean Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroShip})` }}
       >
-        <source src="/ocean-background.mp4" type="video/mp4" />
-        {/* Fallback gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-accent/80" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60" />
-      <div className="absolute inset-0 bg-gradient-ocean/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60" />
+        <div className="absolute inset-0 bg-gradient-ocean/30" />
+      </div>
 
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 float-gentle">
