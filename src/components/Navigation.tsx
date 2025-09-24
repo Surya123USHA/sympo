@@ -1,17 +1,41 @@
-import { useState } from 'react';
-import { Menu, X, Anchor, Map, Users, Calendar, UserCheck, Phone } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, Home, Map, Users, Calendar, UserCheck, Phone, Trophy, Clock } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import MusicToggle from './MusicToggle';
 import strawHatLogo from '@/assets/straw-hat-logo.jpg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const navItems = [
+    { name: 'Home', icon: Home, href: '#home' },
     { name: 'About', icon: Map, href: '#about' },
     { name: 'Events', icon: Calendar, href: '#events' },
-    { name: 'Registration', icon: UserCheck, href: '#registration' },
-    { name: 'Speakers', icon: Users, href: '#speakers' },
+    { name: 'Rules', icon: Trophy, href: '#rules' },
+    { name: 'Schedule', icon: Clock, href: '#schedule' },
+    { name: 'Register', icon: UserCheck, href: '#register' },
     { name: 'Contact', icon: Phone, href: '#contact' },
   ];
 
@@ -75,43 +99,71 @@ const Navigation = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[45] transition-opacity duration-300"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 mt-2 transition-all duration-500 ease-in-out ${
-        isOpen 
-          ? 'opacity-100 translate-y-0 visible' 
-          : 'opacity-0 -translate-y-8 invisible'
-      }`}>
-        <div className="nav-map rounded-2xl shadow-2xl border border-border/30 backdrop-blur-md">
+      <div 
+        ref={menuRef}
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-300 transform ${
+          isOpen 
+            ? 'translate-x-0 opacity-100' 
+            : 'translate-x-full opacity-0'
+        }`}
+      >
+        <div className="h-full nav-map shadow-2xl border-l border-border/30 backdrop-blur-md overflow-y-auto">
           <div className="p-6">
-            <div className="flex flex-col gap-4">
-              {/* Mobile Controls */}
-              <div className="flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20">
-                <MusicToggle />
-                <ThemeToggle />
+            {/* Close Button */}
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200"
+              >
+                <X className="w-6 h-6 text-foreground" />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              {/* Logo Section */}
+              <div className="text-center pb-4 border-b border-border/20">
+                <h2 className="text-2xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  ESPERANZA
+                </h2>
+                <p className="text-sm text-muted-foreground">Symposium 2025</p>
               </div>
-              
+
               {/* Navigation Items */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {navItems.map((item, index) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={() => {
-                      console.log('Mobile nav item clicked:', item.name);
                       setIsOpen(false);
                     }}
-                    className={`flex items-center gap-4 px-5 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-border/40 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group ${
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group ${
                       isOpen ? 'animate-fade-in' : ''
                     }`}
                     style={{ 
-                      animationDelay: isOpen ? `${index * 0.1 + 0.2}s` : '0s',
+                      animationDelay: isOpen ? `${index * 0.05 + 0.1}s` : '0s',
                       animationFillMode: 'both'
                     }}
                   >
-                    <item.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
-                    <span className="font-semibold text-lg">{item.name}</span>
+                    <item.icon className="w-5 h-5 transition-transform group-hover:scale-110 flex-shrink-0" />
+                    <span className="font-semibold text-base">{item.name}</span>
                   </a>
                 ))}
+              </div>
+
+              {/* Mobile Controls */}
+              <div className="flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 mt-4">
+                <MusicToggle />
+                <ThemeToggle />
               </div>
             </div>
           </div>
