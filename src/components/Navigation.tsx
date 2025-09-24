@@ -76,35 +76,44 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 mt-2 nav-map z-[55] shadow-2xl transition-all duration-300 transform ${
+      <div className={`lg:hidden absolute top-full left-0 right-0 mt-2 transition-all duration-500 ease-in-out ${
         isOpen 
-          ? 'opacity-100 translate-y-0 scale-100' 
-          : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'
+          ? 'opacity-100 translate-y-0 visible' 
+          : 'opacity-0 -translate-y-8 invisible'
       }`}>
-        <div className="p-4">
-          <div className="flex flex-col gap-3">
-            {/* Mobile Controls */}
-            <div className="flex items-center justify-center gap-4 mb-4 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-border/30">
-              <MusicToggle />
-              <ThemeToggle />
+        <div className="nav-map rounded-2xl shadow-2xl border border-border/30 backdrop-blur-md">
+          <div className="p-6">
+            <div className="flex flex-col gap-4">
+              {/* Mobile Controls */}
+              <div className="flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20">
+                <MusicToggle />
+                <ThemeToggle />
+              </div>
+              
+              {/* Navigation Items */}
+              <div className="space-y-3">
+                {navItems.map((item, index) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => {
+                      console.log('Mobile nav item clicked:', item.name);
+                      setIsOpen(false);
+                    }}
+                    className={`flex items-center gap-4 px-5 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-border/40 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group ${
+                      isOpen ? 'animate-fade-in' : ''
+                    }`}
+                    style={{ 
+                      animationDelay: isOpen ? `${index * 0.1 + 0.2}s` : '0s',
+                      animationFillMode: 'both'
+                    }}
+                  >
+                    <item.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
+                    <span className="font-semibold text-lg">{item.name}</span>
+                  </a>
+                ))}
+              </div>
             </div>
-            
-            {/* Navigation Items */}
-            {navItems.map((item, index) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => {
-                  console.log('Mobile nav item clicked:', item.name);
-                  setIsOpen(false);
-                }}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-border/50 text-navy hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 animate-fade-in`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <item.icon className="w-5 h-5" />
-                <span className="font-semibold">{item.name}</span>
-              </a>
-            ))}
           </div>
         </div>
       </div>
