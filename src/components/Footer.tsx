@@ -1,4 +1,5 @@
 import { Anchor, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
 import strawHatLogo from '@/assets/straw-hat-logo.jpg';
 
 const Footer = () => {
@@ -15,6 +16,9 @@ const Footer = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
+        {/* Countdown Timer */}
+        <CountdownTimer />
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo & About */}
           <div className="lg:col-span-2">

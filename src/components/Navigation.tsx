@@ -47,19 +47,19 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Controls */}
+        {/* Controls and Mobile Menu Button */}
         <div className="flex items-center gap-3">
           <MusicToggle />
           <ThemeToggle />
+          
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 rounded-lg bg-primary text-primary-foreground hover:scale-110 transition-transform duration-300"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 rounded-lg bg-primary text-primary-foreground hover:scale-110 transition-transform duration-300"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
 
       {/* Mobile Menu */}
