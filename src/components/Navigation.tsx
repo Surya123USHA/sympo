@@ -110,35 +110,46 @@ const Navigation = () => {
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-300 transform ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-500 ease-out transform ${
           isOpen 
-            ? 'translate-x-0 opacity-100' 
-            : 'translate-x-full opacity-0'
+            ? 'translate-x-0 opacity-100 scale-100' 
+            : 'translate-x-full opacity-0 scale-95'
         }`}
       >
-        <div className="h-full nav-map shadow-2xl border-l border-border/30 backdrop-blur-md overflow-y-auto">
-          <div className="p-6">
+        <div className={`h-full nav-map shadow-2xl border-l border-border/30 backdrop-blur-md overflow-y-auto transition-all duration-700 ${
+          isOpen ? 'backdrop-blur-xl' : 'backdrop-blur-none'
+        }`}>
+          <div className="p-6 relative">
+            {/* Animated Background Elements */}
+            <div className={`absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 transition-opacity duration-1000 ${
+              isOpen ? 'opacity-100' : 'opacity-0'
+            }`} />
+            
             {/* Close Button */}
-            <div className="flex justify-end mb-6">
+            <div className={`flex justify-end mb-6 transform transition-all duration-400 ${
+              isOpen ? 'translate-y-0 opacity-100 rotate-0' : '-translate-y-4 opacity-0 rotate-180'
+            }`} style={{ transitionDelay: isOpen ? '0.2s' : '0s' }}>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200"
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-90 relative z-10"
               >
                 <X className="w-6 h-6 text-foreground" />
               </button>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 relative z-10">
               {/* Logo Section */}
-              <div className="text-center pb-4 border-b border-border/20">
-                <h2 className="text-2xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className={`text-center pb-4 border-b border-border/20 transform transition-all duration-600 ${
+                isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
+              }`} style={{ transitionDelay: isOpen ? '0.1s' : '0s' }}>
+                <h2 className="text-2xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-pulse">
                   ESPERANZA
                 </h2>
                 <p className="text-sm text-muted-foreground">Symposium 2025</p>
               </div>
 
               {/* Navigation Items */}
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {navItems.map((item, index) => (
                   <a
                     key={item.name}
@@ -146,24 +157,36 @@ const Navigation = () => {
                     onClick={() => {
                       setIsOpen(false);
                     }}
-                    className={`flex items-center gap-4 px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group ${
-                      isOpen ? 'animate-fade-in' : ''
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-400 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group relative overflow-hidden ${
+                      isOpen ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-8 opacity-0 scale-95'
                     }`}
                     style={{ 
-                      animationDelay: isOpen ? `${index * 0.05 + 0.1}s` : '0s',
-                      animationFillMode: 'both'
+                      transitionDelay: isOpen ? `${index * 0.1 + 0.3}s` : `${(navItems.length - index) * 0.05}s`,
+                      transitionDuration: '0.5s'
                     }}
                   >
-                    <item.icon className="w-5 h-5 transition-transform group-hover:scale-110 flex-shrink-0" />
-                    <span className="font-semibold text-base">{item.name}</span>
+                    {/* Hover ripple effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                    
+                    <item.icon className="w-5 h-5 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 flex-shrink-0 relative z-10" />
+                    <span className="font-semibold text-base relative z-10 group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
+                    
+                    {/* Animated border */}
+                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
                   </a>
                 ))}
               </div>
 
               {/* Mobile Controls */}
-              <div className="flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 mt-4">
-                <MusicToggle />
-                <ThemeToggle />
+              <div className={`flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 mt-4 transform transition-all duration-700 ${
+                isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95'
+              }`} style={{ transitionDelay: isOpen ? '0.8s' : '0s' }}>
+                <div className="transform hover:scale-110 transition-transform duration-200">
+                  <MusicToggle />
+                </div>
+                <div className="transform hover:scale-110 transition-transform duration-200">
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </div>
