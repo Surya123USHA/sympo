@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Home, Map, Users, Calendar, UserCheck, Phone, Trophy, Clock, Info, Anchor } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import MusicToggle from './MusicToggle';
-import strawHatLogo from '@/assets/straw-hat-logo.jpg';
+import esparanzaLogo from '@/assets/esparanza-logo.jpg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,13 +44,13 @@ const Navigation = () => {
         {/* Logo */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <img 
-            src={strawHatLogo} 
-            alt="Straw Hat Pirates" 
+            src={esparanzaLogo} 
+            alt="Esparanza Logo" 
             className="w-10 h-10 rounded-full float-gentle"
           />
           <div className="hidden md:block min-w-0 -ml-2">
             <h1 className="text-xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
-              ESPERANZA
+              ESPARANZA
             </h1>
             <p className="text-xs text-muted-foreground">Symposium 2025</p>
           </div>
@@ -107,17 +107,17 @@ const Navigation = () => {
             : 'opacity-0 invisible'
         }`}
       >
-        <div className="w-full h-full bg-background/98 backdrop-blur-lg flex flex-col">
+        <div className="w-full h-full bg-background/98 backdrop-blur-lg flex flex-col overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-border/10 flex-shrink-0">
             <div className="flex items-center gap-3">
               <img 
-                src={strawHatLogo} 
-                alt="Straw Hat Pirates" 
+                src={esparanzaLogo} 
+                alt="Esparanza Logo" 
                 className="w-8 h-8 rounded-full"
               />
               <h2 className="text-lg font-bold text-primary">
-                ESPERANZA
+                ESPARANZA
               </h2>
             </div>
             <button
@@ -128,8 +128,8 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Navigation Items - Flexible container */}
-          <div className="flex-1 flex flex-col justify-center px-6 py-8">
+          {/* Navigation Items - Scrollable container */}
+          <div className="flex-1 px-6 py-8 min-h-0">
             <div className="space-y-4 max-w-sm mx-auto w-full">
               {navItems.slice(1).map((item, index) => ( // Skip Home for mobile menu
                 <a
