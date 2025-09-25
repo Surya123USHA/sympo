@@ -98,25 +98,17 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[45] transition-opacity duration-300"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-300 ease-out transform ${
+        className={`lg:hidden fixed inset-0 z-[55] transition-all duration-300 ease-out ${
           isOpen 
-            ? 'translate-x-0 opacity-100' 
-            : 'translate-x-full opacity-0'
+            ? 'opacity-100 visible' 
+            : 'opacity-0 invisible'
         }`}
       >
-        <div className="h-full bg-background/95 backdrop-blur-lg shadow-2xl border-l border-border/30 overflow-y-auto">
-          <div className="p-0">
+        <div className="w-full h-full bg-background/98 backdrop-blur-lg overflow-y-auto">
+          <div className="min-h-full flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-3">
@@ -138,34 +130,53 @@ const Navigation = () => {
             </div>
 
             {/* Navigation Items */}
-            <div className="p-6 space-y-2">
-              {navItems.slice(1).map((item, index) => ( // Skip Home for mobile menu
-                <a
-                  key={item.name}
-                  href={item.href}
+            <div className="flex-1 p-6">
+              <div className="max-w-md mx-auto space-y-3">
+                {navItems.slice(1).map((item, index) => ( // Skip Home for mobile menu
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-4 px-6 py-5 text-foreground hover:bg-muted rounded-xl transition-all duration-300 group transform ${
+                      isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
+                    style={{ 
+                      transitionDelay: isOpen ? `${index * 0.1 + 0.1}s` : '0s'
+                    }}
+                  >
+                    <item.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                    <span className="font-medium text-lg">{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="p-6 space-y-6">
+              {/* Explore the Map Button */}
+              <div className="max-w-md mx-auto">
+                <button 
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 px-4 py-4 text-foreground hover:bg-muted rounded-lg transition-colors duration-200 group"
+                  className={`w-full py-4 px-6 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform ${
+                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: isOpen ? '0.6s' : '0s'
+                  }}
                 >
-                  <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  <span className="font-medium">{item.name}</span>
-                </a>
-              ))}
-            </div>
+                  Explore the Map
+                </button>
+              </div>
 
-            {/* Explore the Map Button */}
-            <div className="p-6 mt-auto">
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="w-full py-4 px-6 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
-              >
-                Explore the Map
-              </button>
-            </div>
-
-            {/* Mobile Controls */}
-            <div className="flex items-center justify-center gap-4 p-6 border-t border-border/20">
-              <MusicToggle />
-              <ThemeToggle />
+              {/* Mobile Controls */}
+              <div className={`flex items-center justify-center gap-6 pt-4 border-t border-border/20 transform transition-all duration-300 ${
+                isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`} style={{ 
+                transitionDelay: isOpen ? '0.7s' : '0s'
+              }}>
+                <MusicToggle />
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         </div>
