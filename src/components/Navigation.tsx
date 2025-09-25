@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Home, Map, Users, Calendar, UserCheck, Phone, Trophy, Clock } from 'lucide-react';
+import { Menu, X, Home, Map, Users, Calendar, UserCheck, Phone, Trophy, Clock, Info, Anchor } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import MusicToggle from './MusicToggle';
 import strawHatLogo from '@/assets/straw-hat-logo.jpg';
@@ -31,11 +31,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', icon: Home, href: '#home' },
-    { name: 'About', icon: Map, href: '#about' },
-    { name: 'Events', icon: Calendar, href: '#events' },
-    { name: 'Rules', icon: Trophy, href: '#rules' },
-    { name: 'Schedule', icon: Clock, href: '#schedule' },
-    { name: 'Register', icon: UserCheck, href: '#register' },
+    { name: 'About the Symposium', icon: Info, href: '#about' },
+    { name: 'Events & Schedule', icon: Calendar, href: '#events' },
+    { name: 'Registration', icon: Anchor, href: '#register' },
+    { name: 'Guest Speakers', icon: Users, href: '#speakers' },
     { name: 'Contact', icon: Phone, href: '#contact' },
   ];
 
@@ -110,84 +109,63 @@ const Navigation = () => {
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-500 ease-out transform ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[55] transition-all duration-300 ease-out transform ${
           isOpen 
-            ? 'translate-x-0 opacity-100 scale-100' 
-            : 'translate-x-full opacity-0 scale-95'
+            ? 'translate-x-0 opacity-100' 
+            : 'translate-x-full opacity-0'
         }`}
       >
-        <div className={`h-full nav-map shadow-2xl border-l border-border/30 backdrop-blur-md overflow-y-auto transition-all duration-700 ${
-          isOpen ? 'backdrop-blur-xl' : 'backdrop-blur-none'
-        }`}>
-          <div className="p-6 relative">
-            {/* Animated Background Elements */}
-            <div className={`absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 transition-opacity duration-1000 ${
-              isOpen ? 'opacity-100' : 'opacity-0'
-            }`} />
-            
-            {/* Close Button */}
-            <div className={`flex justify-end mb-6 transform transition-all duration-400 ${
-              isOpen ? 'translate-y-0 opacity-100 rotate-0' : '-translate-y-4 opacity-0 rotate-180'
-            }`} style={{ transitionDelay: isOpen ? '0.2s' : '0s' }}>
+        <div className="h-full bg-background/95 backdrop-blur-lg shadow-2xl border-l border-border/30 overflow-y-auto">
+          <div className="p-0">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-border/20">
+              <div className="flex items-center gap-3">
+                <img 
+                  src={strawHatLogo} 
+                  alt="Straw Hat Pirates" 
+                  className="w-8 h-8 rounded-full"
+                />
+                <h2 className="text-lg font-bold text-primary">
+                  ESPERANZA
+                </h2>
+              </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-90 relative z-10"
+                className="p-2 rounded-full hover:bg-muted transition-colors duration-200"
               >
                 <X className="w-6 h-6 text-foreground" />
               </button>
             </div>
 
-            <div className="flex flex-col gap-6 relative z-10">
-              {/* Logo Section */}
-              <div className={`text-center pb-4 border-b border-border/20 transform transition-all duration-600 ${
-                isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
-              }`} style={{ transitionDelay: isOpen ? '0.1s' : '0s' }}>
-                <h2 className="text-2xl font-black text-navy bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-pulse">
-                  ESPERANZA
-                </h2>
-                <p className="text-sm text-muted-foreground">Symposium 2025</p>
-              </div>
+            {/* Navigation Items */}
+            <div className="p-6 space-y-2">
+              {navItems.slice(1).map((item, index) => ( // Skip Home for mobile menu
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-4 px-4 py-4 text-foreground hover:bg-muted rounded-lg transition-colors duration-200 group"
+                >
+                  <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="font-medium">{item.name}</span>
+                </a>
+              ))}
+            </div>
 
-              {/* Navigation Items */}
-              <div className="space-y-3">
-                {navItems.map((item, index) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                    className={`flex items-center gap-4 px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-400 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group relative overflow-hidden ${
-                      isOpen ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-8 opacity-0 scale-95'
-                    }`}
-                    style={{ 
-                      transitionDelay: isOpen ? `${index * 0.1 + 0.3}s` : `${(navItems.length - index) * 0.05}s`,
-                      transitionDuration: '0.5s'
-                    }}
-                  >
-                    {/* Hover ripple effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                    
-                    <item.icon className="w-5 h-5 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 flex-shrink-0 relative z-10" />
-                    <span className="font-semibold text-base relative z-10 group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
-                    
-                    {/* Animated border */}
-                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
-                  </a>
-                ))}
-              </div>
+            {/* Explore the Map Button */}
+            <div className="p-6 mt-auto">
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="w-full py-4 px-6 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+              >
+                Explore the Map
+              </button>
+            </div>
 
-              {/* Mobile Controls */}
-              <div className={`flex items-center justify-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-border/20 mt-4 transform transition-all duration-700 ${
-                isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95'
-              }`} style={{ transitionDelay: isOpen ? '0.8s' : '0s' }}>
-                <div className="transform hover:scale-110 transition-transform duration-200">
-                  <MusicToggle />
-                </div>
-                <div className="transform hover:scale-110 transition-transform duration-200">
-                  <ThemeToggle />
-                </div>
-              </div>
+            {/* Mobile Controls */}
+            <div className="flex items-center justify-center gap-4 p-6 border-t border-border/20">
+              <MusicToggle />
+              <ThemeToggle />
             </div>
           </div>
         </div>
