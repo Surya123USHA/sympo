@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className={`mb-8 ${isLoaded ? 'sail-in' : 'opacity-0'}`}>
           <h1 className="text-6xl md:text-8xl font-black mb-4">
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-shine bg-[length:200%_100%]">
-              ESPERANZA
+              ESPARANZA
             </span>
           </h1>
           <h2 className="text-2xl md:text-4xl font-bold text-navy mb-6">
@@ -60,13 +60,13 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-12 ${isLoaded ? 'sail-in' : 'opacity-0'}`} style={{animationDelay: '1s'}}>
-          <button className="btn-treasure group">
+          <button className="btn-treasure group flex items-center justify-center gap-3">
+            <Anchor className="w-5 h-5 group-hover:animate-treasure-bounce" />
             <span className="relative z-10">Join the Adventure</span>
-            <Anchor className="w-5 h-5 ml-2 group-hover:animate-treasure-bounce" />
           </button>
-          <button className="btn-adventure">
+          <button className="btn-adventure flex items-center justify-center gap-3">
+            <Calendar className="w-5 h-5" />
             <span>Explore Events</span>
-            <Calendar className="w-5 h-5 ml-2" />
           </button>
         </div>
 
