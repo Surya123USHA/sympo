@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Anchor, MapPin, Calendar, Users } from 'lucide-react';
 import heroShip from '@/assets/hero-ship.jpg';
-import strawHatCrew from '@/assets/straw-hat-crew.jpg';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -11,7 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Ocean Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -30,7 +29,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-32">
         {/* Title */}
         <div className={`mb-8 ${isLoaded ? 'sail-in' : 'opacity-0'}`}>
           <h1 className="text-6xl md:text-8xl font-black mb-6">
@@ -43,17 +42,6 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* Crew Image */}
-        <div className={`mb-8 ${isLoaded ? 'sail-in' : 'opacity-0'}`} style={{animationDelay: '0.5s'}}>
-          <div className="relative inline-block">
-            <img 
-              src={strawHatCrew} 
-              alt="Straw Hat Pirates Crew" 
-              className="w-80 h-60 object-cover rounded-2xl shadow-float border-4 border-secondary/50"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent rounded-2xl" />
-          </div>
-        </div>
 
         {/* CTA Buttons */}
         <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-12 ${isLoaded ? 'sail-in' : 'opacity-0'}`} style={{animationDelay: '1s'}}>
