@@ -33,14 +33,11 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         {/* Title */}
         <div className={`mb-8 ${isLoaded ? 'sail-in' : 'opacity-0'}`}>
-          <h1 className="text-6xl md:text-8xl font-black mb-4">
+          <h1 className="text-6xl md:text-8xl font-black mb-6">
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-shine bg-[length:200%_100%]">
               ESPARANZA
             </span>
           </h1>
-          <h2 className="text-2xl md:text-4xl font-bold text-navy mb-6">
-            ONE PIECE SYMPOSIUM 2025
-          </h2>
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             Join us for an epic adventure of knowledge, discovery, and unity as we explore the vast oceans of possibility together!
           </p>
