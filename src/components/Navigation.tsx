@@ -99,15 +99,16 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
+      {isOpen && <div className="lg:hidden fixed inset-0 bg-black/50 z-[50]" onClick={() => setIsOpen(false)} />}
       <div 
         ref={menuRef}
-        className={`lg:hidden fixed inset-0 z-[55] transition-all duration-300 ease-out ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[80vw] z-[55] bg-background border-l border-border/20 shadow-2xl transform transition-transform duration-300 ease-in-out ${
           isOpen 
-            ? 'opacity-100 visible' 
-            : 'opacity-0 invisible'
+            ? 'translate-x-0' 
+            : 'translate-x-full'
         }`}
       >
-        <div className="w-full h-full bg-background/98 backdrop-blur-lg flex flex-col overflow-y-auto">
+        <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-border/10 flex-shrink-0">
             <div className="flex items-center gap-3">
@@ -128,54 +129,43 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Navigation Items - Scrollable container */}
-          <div className="flex-1 px-6 py-8 min-h-0">
-            <div className="space-y-4 max-w-sm mx-auto w-full">
-              {navItems.slice(1).map((item, index) => ( // Skip Home for mobile menu
+          {/* Navigation Items */}
+          <div className="flex-1 py-6 overflow-y-auto">
+            <div className="space-y-2 px-4">
+              {navItems.map((item, index) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-4 px-6 py-4 text-foreground hover:bg-muted/50 rounded-2xl transition-all duration-300 group transform ${
-                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  className={`flex items-center gap-4 px-4 py-3 text-foreground hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-200 group transform ${
+                    isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
                   }`}
                   style={{ 
-                    transitionDelay: isOpen ? `${index * 0.1 + 0.1}s` : '0s'
+                    transitionDelay: isOpen ? `${index * 0.05 + 0.1}s` : '0s'
                   }}
                 >
-                  <item.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                  <span className="font-medium text-lg">{item.name}</span>
+                  <item.icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="font-medium">{item.name}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Bottom Section - Fixed at bottom */}
-          <div className="flex-shrink-0 p-6 space-y-6">
-            {/* Explore the Map Button */}
-            <div className="max-w-sm mx-auto">
-              <button 
-                onClick={() => setIsOpen(false)}
-                className={`w-full py-4 px-6 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform ${
-                  isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                }`}
-                style={{ 
-                  transitionDelay: isOpen ? '0.6s' : '0s'
-                }}
-              >
-                Explore the Map
-              </button>
-            </div>
-
+          {/* Bottom Section */}
+          <div className="p-6 border-t border-border/10 space-y-4">
             {/* Mobile Controls */}
-            <div className={`flex items-center justify-center gap-6 pt-2 transform transition-all duration-300 ${
-              isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }`} style={{ 
-              transitionDelay: isOpen ? '0.7s' : '0s'
-            }}>
+            <div className="flex items-center justify-center gap-4">
               <MusicToggle />
               <ThemeToggle />
             </div>
+            
+            {/* CTA Button */}
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="w-full py-3 px-4 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              Join the Adventure
+            </button>
           </div>
         </div>
       </div>
