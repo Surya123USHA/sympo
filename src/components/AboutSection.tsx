@@ -17,7 +17,7 @@ const AboutSection = () => {
     {
       icon: Globe,
       title: 'Global Perspective',
-      description: 'Connecting minds from across the world to share diverse viewpoints and innovative solutions.',
+      description: 'Connecting minds from across the States to share diverse viewpoints and innovative solutions.',
       color: 'text-secondary'
     },
     {
@@ -55,9 +55,7 @@ const AboutSection = () => {
               Setting Sail for Knowledge
             </h3>
             <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
-              Just as Monkey D. Luffy and his crew venture into unknown waters seeking the ultimate treasure, 
-              we embark on an intellectual journey to discover groundbreaking ideas, forge meaningful connections, 
-              and chart new territories in research and innovation.
+              Esparanza is the annual symposium of Gojan School of Business and Technology, organized by the Department of Information Technology. It serves as a vibrant platform for students to showcase their technical skills, creativity, and innovation.
             </p>
             <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
               Our symposium creates a space where dreamers, thinkers, and innovators can share their passions, 
@@ -77,7 +75,7 @@ const AboutSection = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   'AI & Machine Learning',
-                  'Sustainable Innovation',
+                  'Prompt Engineering',
                   'Global Collaboration',
                   'Future Technologies',
                   'Creative Problem Solving',

@@ -1,6 +1,6 @@
 import { Anchor, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
-import strawHatLogo from '@/assets/straw-hat-logo.jpg';
+import strawHatLogo from '@/assets/esparanza-logo.jpg';
 
 const Footer = () => {
   return (
@@ -39,7 +39,7 @@ const Footer = () => {
               Join us for an epic adventure of knowledge, discovery, and unity as we explore the vast oceans of possibility together. Every great journey begins with a single step aboard the ship of dreams.
             </p>
             <div className="flex gap-4">
-              <button className="btn-treasure text-sm">
+              <button onClick={()=>{window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdKauM-DnSsELD_RaTu7gjO0nxXNyX7GtTwS4Qarln0wanI0g/viewform?usp=header'}} className="btn-treasure text-sm">
                 Join the Crew
               </button>
             </div>
@@ -51,9 +51,9 @@ const Footer = () => {
             <nav className="space-y-3">
               {[
                 { name: 'About Esperanza', href: '#about' },
-                { name: 'Adventure Schedule', href: '#events' },
+                { name: 'Adventure ', href: '#events' },
                 { name: 'Join the Crew', href: '#registration' },
-                { name: 'Meet the Speakers', href: '#speakers' },
+                { name: 'Meet the Schedule', href: '#speakers' },
                 { name: 'Contact Us', href: '#contact' }
               ].map((link) => (
                 <a
@@ -74,22 +74,22 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-white/70">info@esperanza-symposium.org</p>
-                  <p className="text-white/70">crew@esperanza-symposium.org</p>
+                  <a href='mailto:rohir645@gmai.com'><p className="text-white/70">rohir645@gmail.com</p></a>
+                  <a href='mailto:esparanza2k25@gmail.com'><p className="text-white/70">esparanza2k25@gmail.com</p></a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-white/70">+1 (555) 123-CREW</p>
-                  <p className="text-white/70">+1 (555) 123-SHIP</p>
+                  <p className="text-white/70">+91 (8124078381) </p>
+                  <p className="text-white/70">+91 (97912 28638) </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-white/70">Grand Line Convention Center</p>
-                  <p className="text-white/70">Adventure Island, AL 12345</p>
+                  <p className="text-white/70">Gojan College</p>
+                  <p className="text-white/70">80 Feet Road, Edapalayam, Chennai, Tamil Nadu 600052 </p>
                 </div>
               </div>
             </div>

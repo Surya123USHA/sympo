@@ -1,0 +1,226 @@
+/* Solo Leveling Event Page - Scoped Styles */
+/* Wrap everything in .solo-leveling-event to prevent conflicts */
+
+.solo-leveling-event {
+  /* Solo Leveling Color Palette as CSS Variables */
+  --sl-background: 216 100% 4%;
+  --sl-foreground: 210 40% 98%;
+  --sl-card: 225 30% 8%;
+  --sl-primary: 258 92% 58%;
+  --sl-primary-glow: 258 100% 78%;
+  --sl-secondary: 215 25% 15%;
+  --sl-muted: 215 25% 12%;
+  --sl-muted-foreground: 215 20% 65%;
+  --sl-accent: 195 100% 50%;
+  --sl-accent-glow: 195 100% 70%;
+  --sl-border: 215 25% 20%;
+  --sl-shadow-monarch: 258 100% 20%;
+  --sl-shadow-deep: 215 30% 5%;
+  --sl-arise-glow: 258 100% 65%;
+  --sl-lightning-blue: 195 100% 60%;
+  --sl-shadow-purple: 270 60% 30%;
+
+  min-height: 100vh;
+  background: hsl(var(--sl-background));
+  color: hsl(var(--sl-foreground));
+  font-family: 'Rajdhani', sans-serif;
+  background-image: 
+    radial-gradient(circle at 20% 50%, hsl(var(--sl-primary) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(var(--sl-accent) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, hsl(var(--sl-shadow-purple) / 0.15) 0%, transparent 50%);
+}
+
+.solo-leveling-event h1,
+.solo-leveling-event h2,
+.solo-leveling-event h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 0 20px hsl(var(--sl-primary) / 0.5);
+}
+
+/* ARISE Animation */
+.solo-leveling-event .arise-text {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  background: linear-gradient(90deg, hsl(var(--sl-accent)), hsl(var(--sl-primary-glow)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: sl-ariseGlow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 30px hsl(var(--sl-primary-glow) / 0.8);
+}
+
+/* Shadow Box */
+.solo-leveling-event .shadow-box {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, hsl(var(--sl-card) / 0.8), hsl(var(--sl-muted) / 0.6));
+  border: 2px solid hsl(var(--sl-primary) / 0.3);
+  box-shadow: 
+    0 0 20px hsl(var(--sl-primary) / 0.3),
+    inset 0 1px 0 hsl(var(--sl-primary) / 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+}
+
+.solo-leveling-event .shadow-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, hsl(var(--sl-arise-glow) / 0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.solo-leveling-event .shadow-box:hover::before {
+  opacity: 1;
+}
+
+/* Floating Characters */
+.solo-leveling-event .floating-character {
+  animation: sl-shadowFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px hsl(var(--sl-primary) / 0.4));
+}
+
+/* Rule Icons */
+.solo-leveling-event .rule-icon {
+  width: 2rem;
+  height: 2rem;
+  color: hsl(var(--sl-primary));
+  filter: drop-shadow(0 0 10px hsl(var(--sl-primary) / 0.6));
+  animation: sl-iconPulse 2s ease-in-out infinite alternate;
+}
+
+/* Shadow Button */
+.solo-leveling-event .shadow-button {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, hsl(var(--sl-primary)), hsl(var(--sl-primary-glow)));
+  border: 2px solid hsl(var(--sl-primary-glow));
+  box-shadow: 
+    0 0 20px hsl(var(--sl-primary) / 0.4),
+    0 4px 15px hsl(var(--sl-shadow-monarch) / 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  color: hsl(var(--sl-foreground));
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+.solo-leveling-event .shadow-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, hsl(var(--sl-accent) / 0.3), transparent);
+  transition: transform 0.6s ease;
+}
+
+.solo-leveling-event .shadow-button:hover::before {
+  transform: translateX(100%);
+}
+
+.solo-leveling-event .shadow-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px hsl(var(--sl-primary) / 0.6),
+    0 8px 25px hsl(var(--sl-shadow-monarch) / 0.4);
+}
+
+/* Animations */
+@keyframes sl-ariseGlow {
+  0% { text-shadow: 0 0 30px hsl(258 100% 78% / 0.8); }
+  100% { text-shadow: 0 0 50px hsl(258 100% 78% / 1), 0 0 80px hsl(195 100% 50% / 0.5); }
+}
+
+@keyframes sl-shadowFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-20px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes sl-iconPulse {
+  0% { filter: drop-shadow(0 0 10px hsl(258 92% 58% / 0.6)); }
+  100% { filter: drop-shadow(0 0 20px hsl(258 92% 58% / 0.9)); }
+}
+
+@keyframes sl-slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes sl-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sl-lightningBlink {
+  0%, 50%, 100% { 
+    background: linear-gradient(90deg, hsl(195 100% 50%), hsl(258 100% 78%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  25%, 75% { 
+    background: linear-gradient(90deg, hsl(258 92% 58%), hsl(210 40% 98%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.solo-leveling-event .animate-slide-up {
+  animation: sl-slideUp 0.8s ease-out forwards;
+}
+
+.solo-leveling-event .animate-fade-in {
+  animation: sl-fadeIn 1s ease-out forwards;
+}
+
+.solo-leveling-event .animate-lightning-blink {
+  animation: sl-lightningBlink 2s ease-in-out infinite;
+}
+
+.solo-leveling-event .animate-delayed-1 {
+  animation-delay: 0.2s;
+}
+
+.solo-leveling-event .animate-delayed-2 {
+  animation-delay: 0.4s;
+}
+
+.solo-leveling-event .animate-delayed-3 {
+  animation-delay: 0.6s;
+}
+
+.solo-leveling-event .animate-delayed-4 {
+  animation-delay: 0.8s;
+}
+
+/* Scrollbar */
+.solo-leveling-event ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.solo-leveling-event ::-webkit-scrollbar-track {
+  background: hsl(var(--sl-muted));
+}
+
+.solo-leveling-event ::-webkit-scrollbar-thumb {
+  background: hsl(var(--sl-primary));
+  border-radius: 4px;
+}

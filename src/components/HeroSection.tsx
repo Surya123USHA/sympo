@@ -5,12 +5,16 @@ import heroShip from '@/assets/hero-ship.jpg';
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const scrollToSection = () => {
+    document.getElementById("events")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section id='home' className="relative min-h-screen overflow-hidden">
       {/* Ocean Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -45,23 +49,23 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-12 ${isLoaded ? 'sail-in' : 'opacity-0'}`} style={{animationDelay: '1s'}}>
-          <button className="btn-treasure group flex items-center justify-center gap-3">
+          <button className="btn-treasure group flex items-center justify-center gap-3" onClick={() => {window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdKauM-DnSsELD_RaTu7gjO0nxXNyX7GtTwS4Qarln0wanI0g/viewform?usp=header'}}>
             <Anchor className="w-5 h-5 group-hover:animate-treasure-bounce" />
             <span className="relative z-10">Join the Adventure</span>
           </button>
-          <button className="btn-adventure flex items-center justify-center gap-3">
+          <button onClick={scrollToSection} className="btn-adventure flex items-center justify-center gap-3">
             <Calendar className="w-5 h-5" />
-            <span>Explore Events</span>
+            <span >Explore Events</span>
           </button>
         </div>
 
         {/* Stats */}
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto ${isLoaded ? 'sail-in' : 'opacity-0'}`} style={{animationDelay: '1.5s'}}>
           {[
-            { icon: Users, label: 'Adventurers', value: '500+' },
-            { icon: Calendar, label: 'Days', value: '3' },
+            { icon: Users, label: 'Adventurers', value: '10+' },
+            { icon: Calendar, label: 'Hours', value: '10' },
             { icon: MapPin, label: 'Venues', value: '5' },
-            { icon: Anchor, label: 'Sessions', value: '25+' }
+            { icon: Anchor, label: 'Sessions', value: '20+' }
           ].map((stat, index) => (
             <div key={stat.label} className="text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-treasure mb-2 treasure-bounce" style={{animationDelay: `${index * 0.2}s`}}>

@@ -4,6 +4,8 @@ import AnnouncementBanner from '@/components/AnnouncementBanner';
 import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
 import Footer from '@/components/Footer';
+import Announcements from '@/components/section/Announcements';
+import GuestSpeakers from '@/components/Guestspeakers';
 
 const Index = () => {
   return (
@@ -12,7 +14,8 @@ const Index = () => {
       <AnnouncementBanner />
       <HeroSection />
       <AboutSection />
-      <EventsSection />
+      <Announcements />
+      <GuestSpeakers />
       <Footer />
     </div>
   );
