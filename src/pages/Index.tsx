@@ -5,7 +5,7 @@ import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
 import Footer from '@/components/Footer';
 import Announcements from '@/components/section/Announcements';
-import GuestSpeakers from '@/components/Guestspeakers';
+import GuestSpeakers from '@/components/GuestSpeakers';
 
 const Index = () => {
   return (
